@@ -192,6 +192,14 @@ pub struct CliOpts {
   #[clap(long, help_heading = "SCENE DETECTION")]
   pub sc_pix_format: Option<Pixel>,
 
+  /// Threshold for scene detection
+  #[clap(
+    long = "sc-thresh",
+    default_value_t = 18.0,
+    help_heading = "SCENE DETECTION"
+  )]
+  pub sc_threshold: f64,
+
   /// Optional downscaling for scene detection
   ///
   /// Specify as the desired maximum height to scale to (e.g. "720" to downscale to
@@ -569,6 +577,7 @@ pub fn parse_cli(args: CliOpts) -> anyhow::Result<EncodeArgs> {
     workers: args.workers,
     set_thread_affinity: args.set_thread_affinity,
     vs_script: None,
+    sc_threshold: args.sc_threshold,
   };
 
   encode_args.startup_check()?;

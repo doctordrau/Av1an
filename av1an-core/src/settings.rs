@@ -81,6 +81,7 @@ pub struct EncodeArgs {
   pub split_method: SplitMethod,
   pub sc_pix_format: Option<Pixel>,
   pub sc_method: ScenecutMethod,
+  pub sc_threshold: f64,
   pub sc_downscale_height: Option<usize>,
   pub extra_splits_len: Option<usize>,
   pub min_scene_len: usize,
@@ -730,6 +731,7 @@ properly into a mkv file. Specify mkvmerge as the concatenation method by settin
         self.sc_pix_format,
         self.sc_method,
         self.sc_downscale_height,
+        self.sc_threshold,
       )?,
       SplitMethod::None => (Vec::new(), self.input.frames()?),
     })

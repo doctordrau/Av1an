@@ -45,6 +45,3 @@ lto = "off"
 codegen-units = 1024
 debug-assertions = true
 overflow-checks = true
-
-[patch.crates-io]
-rav1e = { git = "https://github.com/xiph/rav1e", rev = "660a4ddd5b57610b3006777910c133919b9f1625" }
